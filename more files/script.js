@@ -265,12 +265,12 @@ async function modal(id) {
 
                 <div class="bg-gray-100 p-3 flex my-3 rounded-md">
                     <div class="flex-1">
-                        <p class="text-[#64748B]">Assighnee:</p>
-                        <p class="font-bold">rahim</p>
+                        <p class="text-[#64748B]">Assignee::</p>
+                        <p class="font-bold">${data.data.assignee}</p>
                     </div>
                     <div class="flex-1">
-                        <p class="text-[#64748B]">prioriry:</p>
-                        <p class="font-bold">high</p>
+                        <p class="text-[#64748B]">Priority:</p>
+                        <button id="cardtoplevel" class=" font-semibold">${data.data.priority === 'high' ? `<span class="badge badge-error ">${data.data.priority}</span>` : data.data.priority === 'medium' ? `<span  class="badge badge-warning ">${data.data.priority}</span>` : `<span  class="bg-gray-300 rounded-full w-13 block text-gray-500 font-medium">${data.data.priority}</span>`}</button>
                     </div>
                 </div>
 
