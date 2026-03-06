@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue Tracker</title>
+
+
+    <!-- google font:  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+
+    <!-- tailwind and daisy UI  -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+
+
+    <style>
+        * {
+            font-family: "Geist", sans-serif;
+        }
+
+        body {
+            background-color: rgb(248, 250, 252);
+            padding-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="max-w-[550px] min-h-[90vh] mx-auto  bg-white rounded-md p-5">
+        <img src="./more files/assets/github-logo.png" alt="" class="mx-auto mt-10">
+        <h1 class="text-center mt-5 font-bold text-3xl">GitHub Issues Tracker</h1>
+        <p class="text-center text-[#64748B]">Sign in to manage your issues</p>
+
+        <fieldset class="fieldset">
+            <label for="username" class="font-bold block mt-3">Username</label>
+            <input id="username" type="text" placeholder="Enter Username" class="input w-full mt-3 mb-2">
+            <p class="text-primary font-bold">Default: admin</p>
+
+
+            <label for="Password" class="font-bold block mt-2">Password</label>
+            <input id="Password" type="text" placeholder="Enter Password" class="input w-full mt-3 mb-2">
+            <p class="text-primary font-bold">Default: admin123</p>
+
+            <button id="loginBtn" class="btn btn-primary mt-3">Sign In</button>
+
+        </fieldset>
+        <div class="my-3 flex items-center gap-2">
+            <hr class="flex-1 ">
+            <p class="font-medium text-2xl">OR</p>
+            <hr class="flex-1 ">
+        </div>
+        <p class="text-center text-[#64748B]">Demo Credentials:</p>
+
+        <div class="bg-[#F8FAFC] p-5 text-center">
+            <p><span class="font-bold">Username:</span> admin</p>
+            <p><span class="font-bold">Password:</span> admin123</p>
+        </div>
+    </section>
+
+     <script src="./login.js"></script>
+</body>
+
+</html>
