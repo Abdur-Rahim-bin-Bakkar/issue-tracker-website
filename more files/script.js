@@ -255,7 +255,7 @@ async function modal(id) {
                     ${data.data.status === 'open' ? '<span class="badge badge-success text-white">opened</span>' : '<span class="badge badge-error text-white">Closed</span>'}
                     
                     <p class="text-[#64748B]">. ${data.data.author}</p>
-                    <p id="date" class="text-[#64748B] mt-3">${day}/${month}/${year}</p>
+                    <div class="flex items-center"><p id="date" class="text-[#64748B] ">${day}/${month}/${year}</p></div>
 
                 </div>
                 <div class="flex gap-3 mb-3">
@@ -265,7 +265,7 @@ async function modal(id) {
 
                 <div class="bg-gray-100 p-3 flex my-3 rounded-md">
                     <div class="flex-1">
-                        <p class="text-[#64748B]">Assignee::</p>
+                        <p class="text-[#64748B]">Assignee:</p>
                         <p class="font-bold">${data.data.assignee}</p>
                     </div>
                     <div class="flex-1">
