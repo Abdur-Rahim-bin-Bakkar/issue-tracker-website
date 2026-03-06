@@ -34,6 +34,7 @@
 </head>
 
 <body>
+    
 
     <header>
         <div class="navbar bg-base-100 shadow-sm md:px-10 justify-between">
@@ -51,6 +52,7 @@
         </div>
     </header>
 
+    <span id="loading" class="loading loading-spinner loading-xl fixed top-[50%] left-[50%] z-50 hidden"></span>
 
     <section class="p-4 bg-white shadow mt-8 max-w-[90%] mx-auto space-x-3 rounded-md">
         <button id="allBtn" onclick="tabFun('allBtn')" class="btn btn-primary w-30 change">All</button>
@@ -65,7 +67,7 @@
                     <img src="./assets/Aperture.png" alt="">
                 </figure>
                 <div class="">
-                    <p class="font-bold"><span>50</span> Issues</p>
+                    <p class="font-bold"><span id="count">0</span> Issues</p>
                     <p class="text-[#64748B]">Track and manage your project issues</p>
                 </div>
             </div>
@@ -83,10 +85,10 @@
         </section>
 
 
-        <section id="allContainer" class="p-5 bg-[#fbfbfb] grid md:grid-cols-3">
+        <section id="allContainer" class="p-5 bg-[#fbfbfb] grid md:grid-cols-3 gap-4">
 
 
-            <div class="card bg-white py-2  border-t-2 border-t-[#00A96E]">
+            <!-- <div class="card bg-white py-2  border-t-2 border-t-[#00A96E]">
                 <div class="p-6">
                     <div class="flex justify-between">
                         <figure id="cardImage">
@@ -109,7 +111,7 @@
                         by john_doe</p>
                     <p id="date" class="text-[#64748B] mt-3">1/15/2024</p>
                 </div>
-            </div>
+            </div> -->
 
 
 
