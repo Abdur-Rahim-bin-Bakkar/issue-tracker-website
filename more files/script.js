@@ -180,6 +180,7 @@ document.getElementById("allBtn").addEventListener("click", () => {
 })
 
 document.getElementById("searchBtb").addEventListener("click", () => {
+    loading.classList.remove('hidden')
     let count = 0
     // console.log('hocche')
     allContainer.innerHTML = ''
@@ -228,16 +229,15 @@ document.getElementById("searchBtb").addEventListener("click", () => {
                 allContainer.append(div)
             })
         })
-    console.log()
-
-    // .then(data=>{
-    //     console.log(data)
-    // })
+    loading.classList.add('hidden')
 })
 
-onclick = "modal(${data.id})"
+// onclick = "modal(${data.id})"
 
 async function modal(id) {
+    loading.classList.remove('hidden')
+
+
     const links = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`)
     const data = await links.json()
     let date = new Date(data.data.createdAt)
@@ -284,5 +284,7 @@ async function modal(id) {
     
     `
     my_modal_1.showModal()
-    console.log(modalContent)
+    // console.log(modalContent)
+    loading.classList.add('hidden')
+
 }
