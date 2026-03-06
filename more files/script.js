@@ -33,7 +33,7 @@ async function lodeWebsite() {
     ClosedArray = apiDataJson.data.filter(i => i.status !== 'open')
     console.log(ClosedArray.length)
     apiDataJson.data.forEach(data => {
-    createLevel(data.labels)
+        createLevel(data.labels)
 
         // console.log(data)
 
@@ -80,11 +80,11 @@ async function lodeWebsite() {
 lodeWebsite()
 
 
-document.getElementById("openBtb").addEventListener("click",()=>{
+document.getElementById("openBtb").addEventListener("click", () => {
     loading.classList.remove('hidden')
     allContainer.innerHTML = ''
     openAray.forEach(data => {
-    createLevel(data.labels)
+        createLevel(data.labels)
 
         // console.log(data)
 
@@ -127,12 +127,12 @@ document.getElementById("openBtb").addEventListener("click",()=>{
     // loading.classList.add('hidden')
     loading.classList.add('hidden')
 })
-document.getElementById("closeBtn").addEventListener("click",()=>{
+document.getElementById("closeBtn").addEventListener("click", () => {
     // loading.classList.remove("hidden")
     loading.classList.remove('hidden')
     allContainer.innerHTML = ''
     ClosedArray.forEach(data => {
-    createLevel(data.labels)
+        createLevel(data.labels)
 
         // console.log(data)
 
@@ -175,6 +175,64 @@ document.getElementById("closeBtn").addEventListener("click",()=>{
     setNum(ClosedArray.length)
 })
 
-document.getElementById("allBtn").addEventListener("click",()=>{
+document.getElementById("allBtn").addEventListener("click", () => {
     lodeWebsite()
+})
+
+document.getElementById("searchBtb").addEventListener("click", () => {
+    let count =0
+    // console.log('hocche')
+    allContainer.innerHTML = ''
+    const search = document.getElementById("search")
+    const data = fetch(` https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${search.value}`)
+        .then(res => res.json())
+        .then(datas => {
+            datas.data.forEach(data => {
+                createLevel(data.labels)
+                count ++
+    setNum(count)
+
+                console.log(data)
+
+                let date = new Date(data.createdAt)
+                let day = date.getDate()
+                let month = date.getMonth() + 1;
+                let year = date.getFullYear()
+                // console.log(day,month,yeat)
+                const div = document.createElement("div")
+                div.innerHTML = `
+        <div class="card bg-white py-2  border-t-2 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
+                <div class="p-6">
+                    <div class="flex justify-between">
+                        <figure id="cardImage">
+                            ${data.status === 'open' ? '<img src="./assets/Open-Status.png" alt="">' : '<img src="./assets/Closed- Status .png" alt="">'}
+                          
+                        </figure>
+                        <button id="cardtoplevel" class=" font-semibold">${data.priority === 'high' ? `<span class="badge badge-error badge-soft">${data.priority}</span>` : data.priority === 'medium' ? `<span  class="badge badge-warning badge-soft">${data.priority}</span>` : `<span  class="bg-gray-100 rounded-full w-13 block text-gray-500 font-medium">${data.priority}</span>`}</button>
+                    </div>
+                    <h3 title="${data.title}" id="cardTitle" class="font-bold mt-4 line-clamp-1">${data.title}</h3>
+                    <p id="carddescription" title="${data.description}" class="text-[#64748B] mt-3 line-clamp-2">${data.description}
+                    </p>
+                    <div id="levesContainer${data.id}" class="flex gap-3 my-4">
+
+                       ${createLevel(data.labels)}
+                        
+                    </div>
+                </div>
+                <hr class="text-gray-200 border">
+                <div class="p-6">
+                    <p id="athorName" class="text-[#64748B] mt-3">${data.author}</p>
+                    <p id="date" class="text-[#64748B] mt-3">${day}/${month}/${year}</p>
+                </div>
+            </div>
+        
+        `
+                allContainer.append(div)
+            })
+        })
+    console.log()
+
+    // .then(data=>{
+    //     console.log(data)
+    // })
 })
