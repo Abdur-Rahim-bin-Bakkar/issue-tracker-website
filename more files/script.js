@@ -44,7 +44,7 @@ async function lodeWebsite() {
         // console.log(day,month,yeat)
         const div = document.createElement("div")
         div.innerHTML = `
-        <div class="card bg-white py-2  border-t-2 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
+        <div  onclick="modal(${data.id})" class="card bg-white py-2  border-t-2 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
                 <div class="p-6">
                     <div class="flex justify-between">
                         <figure id="cardImage">
@@ -95,7 +95,7 @@ document.getElementById("openBtb").addEventListener("click", () => {
         // console.log(day,month,yeat)
         const div = document.createElement("div")
         div.innerHTML = `
-        <div class="card bg-white py-2  border-t-2 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
+        <div  onclick="modal(${data.id})"  class="card bg-white py-2  border-t-2 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
                 <div class="p-6">
                     <div class="flex justify-between">
                         <figure id="cardImage">
@@ -143,7 +143,7 @@ document.getElementById("closeBtn").addEventListener("click", () => {
         // console.log(day,month,yeat)
         const div = document.createElement("div")
         div.innerHTML = `
-        <div class="card bg-white py-2  border-t-2 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
+        <div  onclick="modal(${data.id})" class="card bg-white py-2  border-t-2 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
                 <div class="p-6">
                     <div class="flex justify-between">
                         <figure id="cardImage">
@@ -180,7 +180,7 @@ document.getElementById("allBtn").addEventListener("click", () => {
 })
 
 document.getElementById("searchBtb").addEventListener("click", () => {
-    let count =0
+    let count = 0
     // console.log('hocche')
     allContainer.innerHTML = ''
     const search = document.getElementById("search")
@@ -189,10 +189,8 @@ document.getElementById("searchBtb").addEventListener("click", () => {
         .then(datas => {
             datas.data.forEach(data => {
                 createLevel(data.labels)
-                count ++
-    setNum(count)
-
-                console.log(data)
+                count++
+                setNum(count)
 
                 let date = new Date(data.createdAt)
                 let day = date.getDate()
@@ -201,7 +199,7 @@ document.getElementById("searchBtb").addEventListener("click", () => {
                 // console.log(day,month,yeat)
                 const div = document.createElement("div")
                 div.innerHTML = `
-        <div class="card bg-white py-2  border-t-2 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
+        <div  onclick="modal(${data.id})" class="card bg-white py-2  border-t-2 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
                 <div class="p-6">
                     <div class="flex justify-between">
                         <figure id="cardImage">
@@ -236,3 +234,55 @@ document.getElementById("searchBtb").addEventListener("click", () => {
     //     console.log(data)
     // })
 })
+
+onclick = "modal(${data.id})"
+
+async function modal(id) {
+    const links = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`)
+    const data = await links.json()
+    let date = new Date(data.data.createdAt)
+    let day = date.getDay()
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear()
+    console.log(data.title)
+    const modalContent = document.getElementById("modalContent")
+    modalContent.innerHTML = `
+     <div class="">
+
+                <h1 class="font-bold text-lg">${data.data.title}</h1>
+
+                <div class="flex gap-2 my-3 items-center">
+                    ${data.data.status === 'open' ? '<span class="badge badge-success text-white">opened</span>' : '<span class="badge badge-error text-white">Closed</span>'}
+                    
+                    <p class="text-[#64748B]">. ${data.data.author}</p>
+                    <p id="date" class="text-[#64748B] mt-3">${day}/${month}/${year}</p>
+
+                </div>
+                <div class="flex gap-3 mb-3">
+                    ${createLevel(data.data.labels)}
+                </div>
+                <p class="text-[#64748B]">${data.data.description}</p>
+
+                <div class="bg-gray-100 p-3 flex my-3 rounded-md">
+                    <div class="flex-1">
+                        <p class="text-[#64748B]">Assighnee:</p>
+                        <p class="font-bold">rahim</p>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-[#64748B]">prioriry:</p>
+                        <p class="font-bold">high</p>
+                    </div>
+                </div>
+
+                <div class="modal-action">
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn btn-primary">Close</button>
+                    </form>
+                </div>
+            </div>
+    
+    `
+    my_modal_1.showModal()
+    console.log(modalContent)
+}
