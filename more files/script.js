@@ -171,8 +171,8 @@ document.getElementById("closeBtn").addEventListener("click",()=>{
         `
         allContainer.append(div)
     })
-    setNum(ClosedArray.length)
     loading.classList.add('hidden')
+    setNum(ClosedArray.length)
 })
 
 document.getElementById("allBtn").addEventListener("click",()=>{
