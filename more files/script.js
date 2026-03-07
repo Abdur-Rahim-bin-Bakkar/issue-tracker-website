@@ -18,7 +18,7 @@ function createLevel(labels) {
     let html = "";
 
     labels.forEach(label => {
-        html +=  `<span class="badge badge-soft ${label === 'bug'? "badge-error" : label ==='help wanted' ? 'badge-warning': label===   'enhancement'? 'badge-success' : label === 'good first issue' ? 'badge-primary':' badge-info'} " > ${label=== 'bug'? '<img src="./assets/bug.png" alt="">' : label === 'help wanted' ? '<img src="./assets/warning.png" alt="">': label === 'enhancement' ? '<img src="./assets/success.png" alt="">' : ''}  ${label}</span>`
+        html += `<span class="badge badge-soft ${label === 'bug' ? "badge-error" : label === 'help wanted' ? 'badge-warning' : label === 'enhancement' ? 'badge-success' : label === 'good first issue' ? 'badge-primary' : ' badge-info'} " > ${label === 'bug' ? '<img src="./assets/bug.png" alt="">' : label === 'help wanted' ? '<img src="./assets/warning.png" alt="">' : label === 'enhancement' ? '<img src="./assets/success.png" alt="">' : ''}  ${label}</span>`
     });
 
     return html;
@@ -124,9 +124,9 @@ document.getElementById("openBtb").addEventListener("click", () => {
         `
         allContainer.append(div)
     })
+    loading.classList.add('hidden')
     setNum(openAray.length)
     // loading.classList.add('hidden')
-    loading.classList.add('hidden')
 })
 document.getElementById("closeBtn").addEventListener("click", () => {
     // loading.classList.remove("hidden")
@@ -180,15 +180,16 @@ document.getElementById("allBtn").addEventListener("click", () => {
     lodeWebsite()
 })
 
-document.getElementById("searchBtb").addEventListener("click", () => {
+document.getElementById("searchBtb").addEventListener("click", async () => {
     loading.classList.remove('hidden')
     let count = 0
     // console.log('hocche')
     allContainer.innerHTML = ''
     const search = document.getElementById("search")
-    const data = fetch(` https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${search.value}`)
-        .then(res => res.json())
-        .then(datas => {
+    const data = await fetch(` https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${search.value}`)
+    const datas = await data.json()
+        // .then(res => res.json())
+        
             datas.data.forEach(data => {
                 createLevel(data.labels)
                 count++
@@ -229,7 +230,7 @@ document.getElementById("searchBtb").addEventListener("click", () => {
         `
                 allContainer.append(div)
             })
-        })
+        
     loading.classList.add('hidden')
 })
 
