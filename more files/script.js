@@ -90,7 +90,7 @@ document.getElementById("openBtb").addEventListener("click", () => {
         // console.log(data)
 
         let date = new Date(data.createdAt)
-        let day = date.getDate()
+        let day = date.getDay()
         let month = date.getMonth() + 1;
         let year = date.getFullYear()
         // console.log(day,month,yeat)
@@ -138,7 +138,7 @@ document.getElementById("closeBtn").addEventListener("click", () => {
         // console.log(data)
 
         let date = new Date(data.createdAt)
-        let day = date.getDate()
+        let day = date.getDay()
         let month = date.getMonth() + 1;
         let year = date.getFullYear()
         // console.log(day,month,yeat)
