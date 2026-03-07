@@ -84,11 +84,11 @@ lodeWebsite()
 document.getElementById("openBtb").addEventListener("click", () => {
     loading.classList.remove('hidden')
     allContainer.innerHTML = ''
-        let count = 0;
+    let count = 0;
 
     openAray.forEach(data => {
         createLevel(data.labels)
-        count ++
+        count++
         // console.log(data)
 
         let date = new Date(data.createdAt)
@@ -193,20 +193,19 @@ document.getElementById("searchBtb").addEventListener("click", async () => {
     const search = document.getElementById("search")
     const data = await fetch(` https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${search.value}`)
     const datas = await data.json()
-        // .then(res => res.json())
-        
-            datas.data.forEach(data => {
-                createLevel(data.labels)
-                count++
-                setNum(count)
+    // .then(res => res.json())
 
-                let date = new Date(data.createdAt)
-                let day = date.getDate()
-                let month = date.getMonth() + 1;
-                let year = date.getFullYear()
-                // console.log(day,month,yeat)
-                const div = document.createElement("div")
-                div.innerHTML = `
+    datas.data.forEach(data => {
+        createLevel(data.labels)
+        count++
+
+        let date = new Date(data.createdAt)
+        let day = date.getDate()
+        let month = date.getMonth() + 1;
+        let year = date.getFullYear()
+        // console.log(day,month,yeat)
+        const div = document.createElement("div")
+        div.innerHTML = `
         <div  onclick="modal(${data.id})" class="cursor-pointer card h-full bg-white py-2  border-t-4 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
                 <div class="p-2 flex-1">
                     <div class="flex justify-between">
@@ -233,10 +232,13 @@ document.getElementById("searchBtb").addEventListener("click", async () => {
             </div>
         
         `
-                allContainer.append(div)
-            })
-        
+        allContainer.append(div)
+    })
+
+    setNum(count)
+
     loading.classList.add('hidden')
+
 })
 
 // onclick = "modal(${data.id})"
