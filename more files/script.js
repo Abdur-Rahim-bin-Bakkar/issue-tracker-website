@@ -65,7 +65,7 @@ async function lodeWebsite() {
                 </div>
                 <hr class="text-gray-200 border">
                 <div class="p-6">
-                    <p id="athorName" class="text-[#64748B] mt-3">${data.author}</p>
+                    <p id="athorName" class="text-[#64748B] mt-3">#${data.id} by ${data.author}</p>
                     <p id="date" class="text-[#64748B] mt-3">${day}/${month}/${year}</p>
                 </div>
             </div>
@@ -84,9 +84,11 @@ lodeWebsite()
 document.getElementById("openBtb").addEventListener("click", () => {
     loading.classList.remove('hidden')
     allContainer.innerHTML = ''
+        let count = 0;
+
     openAray.forEach(data => {
         createLevel(data.labels)
-
+        count ++
         // console.log(data)
 
         let date = new Date(data.createdAt)
@@ -116,7 +118,7 @@ document.getElementById("openBtb").addEventListener("click", () => {
                 </div>
                 <hr class="text-gray-200 border">
                 <div class="p-6">
-                    <p id="athorName" class="text-[#64748B] mt-3">${data.author}</p>
+                    <p id="athorName" class="text-[#64748B] mt-3">#${count} by ${data.author}</p>
                     <p id="date" class="text-[#64748B] mt-3">${day}/${month}/${year}</p>
                 </div>
             </div>
@@ -131,11 +133,13 @@ document.getElementById("openBtb").addEventListener("click", () => {
 document.getElementById("closeBtn").addEventListener("click", () => {
     // loading.classList.remove("hidden")
     loading.classList.remove('hidden')
+    let count = 0;
     allContainer.innerHTML = ''
     ClosedArray.forEach(data => {
         createLevel(data.labels)
 
         // console.log(data)
+        count++
 
         let date = new Date(data.createdAt)
         let day = date.getDay()
@@ -165,7 +169,7 @@ document.getElementById("closeBtn").addEventListener("click", () => {
                 </div>
                 <hr class="text-gray-200 border">
                 <div class="p-6">
-                    <p id="athorName" class="text-[#64748B] mt-3">${data.author}</p>
+                    <p id="athorName" class="text-[#64748B] mt-3">#${count} by ${data.author}</p>
                     <p id="date" class="text-[#64748B] mt-3">${day}/${month}/${year}</p>
                 </div>
             </div>
@@ -223,7 +227,7 @@ document.getElementById("searchBtb").addEventListener("click", async () => {
                 </div>
                 <hr class="text-gray-200 border">
                 <div class="p-6">
-                    <p id="athorName" class="text-[#64748B] mt-3">${data.author}</p>
+                    <p id="athorName" class="text-[#64748B] mt-3">#${count} by ${data.author}</p>
                     <p id="date" class="text-[#64748B] mt-3">${day}/${month}/${year}</p>
                 </div>
             </div>
