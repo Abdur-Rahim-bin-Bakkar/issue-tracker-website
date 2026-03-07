@@ -18,7 +18,7 @@ function createLevel(labels) {
     let html = "";
 
     labels.forEach(label => {
-        html += `<span class="badge badge-soft ${label === 'bug' ? "badge-error" : label === 'help wanted' ? 'badge-warning' : label === 'enhancement' ? 'badge-success' : label === 'good first issue' ? 'badge-primary' : ' badge-info'} " > ${label === 'bug' ? '<img src="./assets/bug.png" alt="">' : label === 'help wanted' ? '<img src="./assets/warning.png" alt="">' : label === 'enhancement' ? '<img src="./assets/success.png" alt="">' : ''}  ${label}</span>`
+        html += `<span class="badge badge-soft font-semibold ${label === 'bug' ? "badge-error" : label === 'help wanted' ? 'badge-warning' : label === 'enhancement' ? 'badge-success' : label === 'good first issue' ? 'badge-primary' : ' badge-info'} " > ${label === 'bug' ? '<img src="./assets/bug.png" alt="">' : label === 'help wanted' ? '<img src="./assets/warning.png" alt="">' : label === 'enhancement' ? '<img src="./assets/success.png" alt="">' : ''}  ${label.toUpperCase()}</span>`
     });
 
     return html;
@@ -45,8 +45,8 @@ async function lodeWebsite() {
         // console.log(day,month,yeat)
         const div = document.createElement("div")
         div.innerHTML = `
-        <div  onclick="modal(${data.id})" class="cursor-pointer card bg-white py-2  border-t-2 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
-                <div class="p-6">
+        <div  onclick="modal(${data.id})" class="cursor-pointer card bg-white py-4  border-t-2 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
+                <div class="p-2">
                     <div class="flex justify-between">
                         <figure id="cardImage">
                             ${data.status === 'open' ? '<img src="./assets/Open-Status.png" alt="">' : '<img src="./assets/Closed- Status .png" alt="">'}
@@ -57,7 +57,7 @@ async function lodeWebsite() {
                     <h3 title="${data.title}" id="cardTitle" class="font-bold mt-4 line-clamp-1">${data.title}</h3>
                     <p id="carddescription" title="${data.description}" class="text-[#64748B] mt-3 line-clamp-2">${data.description}
                     </p>
-                    <div id="levesContainer${data.id}" class="flex gap-3 my-4">
+                    <div id="levesContainer${data.id}" class="flex gap-3 my-4 flex-wrap">
 
                        ${createLevel(data.labels)}
                         
@@ -97,7 +97,7 @@ document.getElementById("openBtb").addEventListener("click", () => {
         const div = document.createElement("div")
         div.innerHTML = `
         <div  onclick="modal(${data.id})"  class="cursor-pointer card bg-white py-2  border-t-2 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
-                <div class="p-6">
+                <div class="p-2">
                     <div class="flex justify-between">
                         <figure id="cardImage">
                             ${data.status === 'open' ? '<img src="./assets/Open-Status.png" alt="">' : '<img src="./assets/Closed- Status .png" alt="">'}
@@ -108,7 +108,7 @@ document.getElementById("openBtb").addEventListener("click", () => {
                     <h3 title="${data.title}" id="cardTitle" class="font-bold mt-4 line-clamp-1">${data.title}</h3>
                     <p id="carddescription" title="${data.description}" class="text-[#64748B] mt-3 line-clamp-2">${data.description}
                     </p>
-                    <div id="levesContainer${data.id}" class="flex gap-3 my-4">
+                    <div id="levesContainer${data.id}" class="flex gap-3 my-4 flex-wrap">
 
                        ${createLevel(data.labels)}
                         
@@ -145,7 +145,7 @@ document.getElementById("closeBtn").addEventListener("click", () => {
         const div = document.createElement("div")
         div.innerHTML = `
         <div  onclick="modal(${data.id})" class="cursor-pointer card bg-white py-2  border-t-2 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
-                <div class="p-6">
+                <div class="p-2">
                     <div class="flex justify-between">
                         <figure id="cardImage">
                             ${data.status === 'open' ? '<img src="./assets/Open-Status.png" alt="">' : '<img src="./assets/Closed- Status .png" alt="">'}
@@ -156,7 +156,7 @@ document.getElementById("closeBtn").addEventListener("click", () => {
                     <h3 title="${data.title}" id="cardTitle" class="font-bold mt-4 line-clamp-1">${data.title}</h3>
                     <p id="carddescription" title="${data.description}" class="text-[#64748B] mt-3 line-clamp-2">${data.description}
                     </p>
-                    <div id="levesContainer${data.id}" class="flex gap-3 my-4">
+                    <div id="levesContainer${data.id}" class="flex gap-3 my-4 flex-wrap">
 
                        ${createLevel(data.labels)}
                         
@@ -203,7 +203,7 @@ document.getElementById("searchBtb").addEventListener("click", async () => {
                 const div = document.createElement("div")
                 div.innerHTML = `
         <div  onclick="modal(${data.id})" class="cursor-pointer card bg-white py-2  border-t-2 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
-                <div class="p-6">
+                <div class="p-2">
                     <div class="flex justify-between">
                         <figure id="cardImage">
                             ${data.status === 'open' ? '<img src="./assets/Open-Status.png" alt="">' : '<img src="./assets/Closed- Status .png" alt="">'}
@@ -260,7 +260,7 @@ async function modal(id) {
                     <div class="flex items-center"><p id="date" class="text-[#64748B] ">${day}/${month}/${year}</p></div>
 
                 </div>
-                <div class="flex gap-3 mb-3">
+                <div class="flex gap-3 mb-3 flex-wrap">
                     ${createLevel(data.data.labels)}
                 </div>
                 <p class="text-[#64748B]">${data.data.description}</p>
@@ -290,3 +290,5 @@ async function modal(id) {
     loading.classList.add('hidden')
 
 }
+
+// const name = 'rahim'
