@@ -34,11 +34,9 @@
 </head>
 
 <body>
-    <dialog id="my_modal_1" class="modal">
-        <div id="modalContent" class="modal-box p-5">
-           
-        </div>
-    </dialog>
+<img src="./assets/warning.png" alt="">
+<img src="./assets/bug.png" alt="">
+<img src="./assets/success.png" alt="">
 
 
     <header>
@@ -57,9 +55,15 @@
         </div>
     </header>
 
+    <dialog id="my_modal_1" class="modal">
+        <div id="modalContent" class="modal-box p-5">
+
+        </div>
+    </dialog>
     <span id="loading" class="loading loading-spinner loading-xl fixed top-[50%] left-[50%] z-50 hidden"></span>
 
-    <section class="p-4 bg-white shadow mt-8 max-w-[90%] mx-auto space-x-3 rounded-md space-y-3 flex justify-center flex-wrap">
+    <section
+        class="p-4 bg-white shadow mt-8 max-w-[90%] mx-auto space-x-3 rounded-md space-y-3 flex justify-center flex-wrap">
         <button id="allBtn" onclick="tabFun('allBtn')" class="btn btn-primary w-30 change">All</button>
         <button id="openBtb" onclick="tabFun('openBtb')" class="btn  w-30 change">Open</button>
         <button id="closeBtn" onclick="tabFun('closeBtn')" class="btn  w-30 change">Closed</button>

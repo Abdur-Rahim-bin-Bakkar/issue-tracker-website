@@ -18,11 +18,12 @@ function createLevel(labels) {
     let html = "";
 
     labels.forEach(label => {
-        html += `<span class="badge badge-soft ${label === 'bug' ? 'badge-error' : label === 'help wanted' ? 'badge-warning' : label === 'good first issue' ? 'badge-success' : 'badge-primary'}">${label}</span>`
+        html +=  `<span class="badge badge-soft ${label === 'bug'? "badge-error" : label ==='help wanted' ? 'badge-warning': label===   'enhancement'? 'badge-success' : label === 'good first issue' ? 'badge-primary':' badge-info'} " > ${label=== 'bug'? '<img src="./assets/bug.png" alt="">' : label === 'help wanted' ? '<img src="./assets/warning.png" alt="">': label === 'enhancement' ? '<img src="./assets/success.png" alt="">' : ''}  ${label}</span>`
     });
 
     return html;
 }
+//faj ldsfds nfoldsi uoguoigho aiofg
 
 async function lodeWebsite() {
     allContainer.innerHTML = ''
