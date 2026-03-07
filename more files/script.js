@@ -45,7 +45,7 @@ async function lodeWebsite() {
         // console.log(day,month,yeat)
         const div = document.createElement("div")
         div.innerHTML = `
-        <div  onclick="modal(${data.id})" class="card bg-white py-2  border-t-2 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
+        <div  onclick="modal(${data.id})" class="cursor-pointer card bg-white py-2  border-t-2 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
                 <div class="p-6">
                     <div class="flex justify-between">
                         <figure id="cardImage">
@@ -96,7 +96,7 @@ document.getElementById("openBtb").addEventListener("click", () => {
         // console.log(day,month,yeat)
         const div = document.createElement("div")
         div.innerHTML = `
-        <div  onclick="modal(${data.id})"  class="card bg-white py-2  border-t-2 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
+        <div  onclick="modal(${data.id})"  class="cursor-pointer card bg-white py-2  border-t-2 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
                 <div class="p-6">
                     <div class="flex justify-between">
                         <figure id="cardImage">
@@ -144,7 +144,7 @@ document.getElementById("closeBtn").addEventListener("click", () => {
         // console.log(day,month,yeat)
         const div = document.createElement("div")
         div.innerHTML = `
-        <div  onclick="modal(${data.id})" class="card bg-white py-2  border-t-2 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
+        <div  onclick="modal(${data.id})" class="cursor-pointer card bg-white py-2  border-t-2 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
                 <div class="p-6">
                     <div class="flex justify-between">
                         <figure id="cardImage">
@@ -201,7 +201,7 @@ document.getElementById("searchBtb").addEventListener("click", () => {
                 // console.log(day,month,yeat)
                 const div = document.createElement("div")
                 div.innerHTML = `
-        <div  onclick="modal(${data.id})" class="card bg-white py-2  border-t-2 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
+        <div  onclick="modal(${data.id})" class="cursor-pointer card bg-white py-2  border-t-2 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
                 <div class="p-6">
                     <div class="flex justify-between">
                         <figure id="cardImage">
