@@ -45,7 +45,7 @@ async function lodeWebsite() {
         // console.log(day,month,yeat)
         const div = document.createElement("div")
         div.innerHTML = `
-        <div  onclick="modal(${data.id})" class="cursor-pointer  h-full card bg-white py-4  border-t-2 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
+        <div  onclick="modal(${data.id})" class="cursor-pointer  h-full card bg-white py-4  border-t-4 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
                 <div class="p-2 flex-1">
                     <div class="flex justify-between">
                         <figure id="cardImage">
@@ -98,7 +98,7 @@ document.getElementById("openBtb").addEventListener("click", () => {
         // console.log(day,month,yeat)
         const div = document.createElement("div")
         div.innerHTML = `
-        <div  onclick="modal(${data.id})"  class="cursor-pointer h-full card bg-white py-2  border-t-2 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
+        <div  onclick="modal(${data.id})"  class="cursor-pointer h-full card bg-white py-2  border-t-4 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
                 <div class="p-2 flex-1">
                     <div class="flex justify-between">
                         <figure id="cardImage">
@@ -149,7 +149,7 @@ document.getElementById("closeBtn").addEventListener("click", () => {
         const div = document.createElement("div")
         div.classList.add('h-full')
         div.innerHTML = `
-          <div  onclick="modal(${data.id})" class="cursor-pointer  h-full card bg-white py-4  border-t-2 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
+          <div  onclick="modal(${data.id})" class="cursor-pointer  h-full card bg-white py-4  border-t-4 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
                 <div class="p-2  flex-1">
                     <div class="flex justify-between">
                         <figure id="cardImage">
@@ -207,7 +207,7 @@ document.getElementById("searchBtb").addEventListener("click", async () => {
                 // console.log(day,month,yeat)
                 const div = document.createElement("div")
                 div.innerHTML = `
-        <div  onclick="modal(${data.id})" class="cursor-pointer card h-full bg-white py-2  border-t-2 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
+        <div  onclick="modal(${data.id})" class="cursor-pointer card h-full bg-white py-2  border-t-4 ${data.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'}  shadow">
                 <div class="p-2 flex-1">
                     <div class="flex justify-between">
                         <figure id="cardImage">
